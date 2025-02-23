@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: rgb(219, 204, 181);
+    }
+    h1 {
+      font-family: "Sacramento", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    h2 {
+      font-family: "Sacramento", serif;
+      font-weight: 200;
+      font-style: normal;
+    }
+    label {
+      font-family: "Alice", serif;
+      font-weight: 400;
+      font-size: normal;
+    }
+    #name {
+      width: 200px;
+      height: 20px;
+    }
+    #message {
+      width: 200px;
+      height: 150px;
+    }
+    button {
+      background-color: royalblue;
+      color: white;
+      border: 2px solid royalblue;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: royalblue;
+      border-color: royalblue;
+      transform: scale(1.2);
+    }
+    button:active {
+      background-color: royalblue;
+      transform: scale(1);
+    }
+    
+    #update{
+      width: 300px;
+      height: 40px;
+    }
+
+  </style>
+</head>
+<body>
+  <img src="/linje.png" alt="">
+  <h1>Gästboken</h1>
+  <form action="/add" method="POST">
+    <label for="name">Namn:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="message">Meddelande:</label><br>
+    <textarea name="message" id="message" required></textarea><br>
+
+    <button id="button" type="submit">Skicka</button>
+  </form> 
+  <img src="/linje.png" alt="">
+  <ul>
+    <% guestbook.forEach(function(message) { %>
+      <li>
+        <strong><%= message.namn %></strong><br />
+        <%= message.meddelande %>
+      </li>
+    <% }); %>
+  </ul>
+  <img src="/linje.png" alt="">
+  <form action="/login" method="GET">
+      <h2>Logga in som admin:</h2>
+      <button id="button"type=submit>Logga in</button>
+  </form>
+  <img src="/linje.png" alt="">
+
+</body>
+</html>
